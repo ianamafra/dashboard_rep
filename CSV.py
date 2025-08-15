@@ -7,13 +7,13 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("Dashboard de Informações - REP 671")
-st.markdown("Dados sistêmicos das Unidades Básicas de Saúde - Manaus/AM")
-
 # Upload do CSV manual
 uploaded_file = st.file_uploader("Selecione o arquivo CSV", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file, encoding='ISO-8859-1')
+
+st.title("Dashboard de Informações - REP 671")
+st.markdown("Dados sistêmicos das Unidades Básicas de Saúde - Manaus/AM")
 
     # Filtros
     st.sidebar.header("Filtros")
@@ -42,6 +42,7 @@ if uploaded_file is not None:
 
 else:
     st.warning("Por favor, envie o arquivo CSV para continuar.")
+
 
 
 
