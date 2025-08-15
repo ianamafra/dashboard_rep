@@ -33,9 +33,10 @@ if uploaded_file is not None:
     ]
 
     # KPI - Total de Unidades
-    total_unidades = df_filtro['UNIDADE'].nunique()
+    total_unidades = df_filtro['UNIDADE '].nunique()
     st.metric(label="Total de Unidades", value=total_unidades)
 
 else:
     st.warning("Por favor, envie o arquivo CSV para continuar.")
+
 
