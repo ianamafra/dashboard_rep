@@ -1,6 +1,12 @@
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(
+    page_title="Controle de Ponto Eletrônico - REP 671",
+    page_icon="📊",
+    layout="wide",
+)
+
 st.title("Dashboard de Informações - REP 671")
 st.markdown("Dados sistêmicos das Unidades Básicas de Saúde - Manaus/AM")
 
@@ -32,3 +38,4 @@ if uploaded_file is not None:
 
 else:
     st.warning("Por favor, envie o arquivo CSV para continuar.")
+
