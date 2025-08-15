@@ -8,7 +8,18 @@ st.set_page_config(
     layout="wide",
 )
 
-df =  pd.read_csv(r'C:\Users\iana.mafra\Documents\Dashboard\ControleDePontoEletronico_new.csv', encoding='ISO-8859-1')
+df_local =  pd.read_csv(r'C:\Users\iana.mafra\Documents\Dashboard\ControleDePontoEletronico_new.csv', encoding='ISO-8859-1')
+
+# Tenta carregar localmente
+if os.path.exists(df_local):
+    df = pd.read_csv(df_local, encoding='ISO-8859-1')
+else:
+    st.warning("Arquivo local não encontrado. Faça o upload do CSV.")
+    arquivo = st.file_uploader("Envie o arquivo CSV", type=["csv"])
+    if arquivo is not None:
+        df = pd.read_csv(arquivo, encoding='ISO-8859-1')
+    else:
+        st.stop()  # para o app até o arquivo ser carregado
 
 st.sidebar.header("Filtros")
 
@@ -50,6 +61,7 @@ st.metric(label="Total de UBS's", value=total_unidades)
 # Tabela de Informações - CSV #
 st.subheader("Dados Detalhados")
 st.dataframe(df_filtro)
+
 
 
 
