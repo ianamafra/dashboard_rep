@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide",
 )
 
-df = pd.readdf = pd.read_csv(r'C:\Users\iana.mafra\Documents\Dashboard\ControleDePontoEletronico_new.csv', encoding='ISO-8859-1')
+df =  pd.read_csv(r'C:\Users\iana.mafra\Documents\Dashboard\ControleDePontoEletronico_new.csv', encoding='ISO-8859-1')
 
 st.sidebar.header("Filtros")
 
@@ -50,5 +50,6 @@ st.metric(label="Total de UBS's", value=total_unidades)
 # Tabela de Informações - CSV #
 st.subheader("Dados Detalhados")
 st.dataframe(df_filtro)
+
 
 
